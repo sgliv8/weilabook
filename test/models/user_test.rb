@@ -35,4 +35,13 @@ class UserTest < ActiveSupport::TestCase
 		assert !user.errors[:profile_name].empty?
 		assert user.errors[:profile_name].include?("Must be formatted correctly.")
 	end
+
+	test "a user can have a correctly formatted profile name" do
+		user = User.new(first_name:"Jay", last_name: "owen", email: "jayx66@gmail.com")
+		user.password = user.password_confirmation = "111111111"
+		user.profile_name = 'owensg_1'
+		assert user.valid?
+	end
+
+
 end
