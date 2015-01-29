@@ -27,6 +27,7 @@
 
 				<ul class="nav navbar-nav navbar-right">
 					<% if user_signed_in? %>
+						<li class="hidden-xs image-size"><%= image_tag(current_user.gravatar_url, :class => "image-size") %></li>
 						<li><%= link_to current_user.full_name, profile_path(current_user.profile_name) %></li>
 						<li><%= link_to "Log Out", logout_path %></li>
 					<% else %>
